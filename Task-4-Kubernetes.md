@@ -54,7 +54,7 @@ aws s3 mb s3://$clname --region $region
 export KOPS_STATE_STORE=s3://$clname
 
 # Create Kubernetes cluster
-kops create cluster --node-count=2 --master-size="t2.medium" --node-size="t2.medium" --master-volume-size=20 --node-volume-size=20 --zones $az --name $clname --ssh-public-key ~/.ssh/id_rsa.pub --yes
+kops create cluster --node-count=2 --master-size="t3.small" --node-size="t3.small" --master-volume-size=20 --node-volume-size=20 --zones $az --name $clname --ssh-public-key ~/.ssh/id_rsa.pub --yes
 kops update cluster $clname --yes
 
 # Export KOPS_STATE_STORE to bashrc
