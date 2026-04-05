@@ -28,10 +28,10 @@ FROM ubuntu:18.04
 LABEL maintainer="Admin CloudThat"
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
-COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
+COPY requirements.txt .
 RUN pip install -r requirements.txt
-COPY ./code /app
+COPY . .
 CMD [ "python", "app.py" ]
 ```
 Create application directory:
